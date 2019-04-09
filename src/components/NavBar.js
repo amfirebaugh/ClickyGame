@@ -3,7 +3,7 @@ import React from 'react';
 const NavBar = props => {
   // console.log(props);
   return (
-    <nav className="navbar navbar-expand-sm py-3 font-weight-bold">
+    <nav className="navbar navbar-expand-sm sticky-top py-3 font-weight-bold">
       <div className="container">
         <div className="col-lg-4">
           <span className="navbar-brand float-left">

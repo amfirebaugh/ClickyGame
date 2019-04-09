@@ -8,26 +8,26 @@ import characters from './characters.json';
 import './App.css';
 
 // randomize characters from json
-// ALLIE: GO THROUGH AND RENAME SOME OF THESE TO MAKE IT READABLE FOR OTHERS:
-var randomize = function(array) {
-  // store the current array length in this variable so we make sure it's not empty
-  var currentIndex = array.length;
-  // temporaryValue is just a placeholder, as well as randomIndex
-  var temporaryValue, randomIndex;
+// ALLIE: THIS WAS ONE WAY...LOL... SEE MY ONE LINE OF CODE BELOW TO REPLACE ALL OF THIS!:
+// var randomize = function(array) {
+//   // store the current array length in this variable so we make sure it's not empty
+//   let arrayLength = array.length;
+//   // temporaryValue and randomIndex are just a placeholders
+//   let temporaryValue, randomIndex;
 
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
+//   // While the array has items still in it... (randomize)
+//   while (0 !== arrayLength) {
+//     // Pick a random element...
+//     randomIndex = Math.floor(Math.random() * arrayLength);
+//     arrayLength -= 1;
 
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
-};
+//     // And swap it with the current element.
+//     temporaryValue = array[arrayLength];
+//     array[arrayLength] = array[randomIndex];
+//     array[randomIndex] = temporaryValue;
+//   }
+//   return array;
+// };
 
 class App extends Component {
   state = {
@@ -38,76 +38,140 @@ class App extends Component {
     selectedChars: []
   };
 
-  componentDidMount = () => {
-    randomize(characters);
-    console.log(characters);
-    this.setState({
-      characters: characters
+  // componentDidMount = () => {
+  //   randomize(characters);
+  //   // console.log(characters);
+  //   this.setState({
+  //     characters: characters
+  //   });
+  // };
+
+  handleClick = id => {
+    //var score = this.state.score;
+    // Notes for myself to remind myself how I figured these functions out:
+    // https://www.w3schools.com/js/js_array_iteration.asp
+    // I'm passing random m and n into the find method on my array of characters... then arrow function to...
+    this.state.characters.find((m, n) => {
+      // if the id's match up (with clicked item and item in array)... just making sure they connect to each other because I had this issue with working with Devin Saturday
+      if (m.id === id) {
+        // then if THAT clicked character's isClicked property is false...
+        if (characters[n].isClicked === false) {
+          // change it to true (since it has now been clicked)
+          characters[n].isClicked = true;
+          //this.handleScore();
+          // *************************************
+          // increase the score (and state... see variable above) by 1
+          var score = this.state.score;
+          score++;
+          // set the state and change banner
+          this.setState({
+            score: score,
+            banner: 'Keep Guessing!'
+          });
+          // *************************************
+          // DRAMATICALLY improved my random sorting method with google help. I found the sort method also on the w3 schools but at this link: https://www.w3schools.com/js/js_array_sort.asp and played with it in a console.log to get what I needed here
+          this.state.characters.sort(() => Math.random() - 0.5);
+          return true;
+          // else (aka if isClicked WAS true and thus a repeat click --> no more need for my checkRepeat method)
+        } else {
+          // call this method... see below
+          this.gameReset();
+        }
+      }
     });
+
+    // let clickedArray = { ...this.state };
+
+    // // let name = this.state.characters.name;
+
+    // if (isClicked) {
+    //   this.setState({
+    //     score: 0,
+    //     banner: 'Wrong Guess!'
+    //   });
+    //   this.checkRepeats();
+    // } else {
+    //   this.handleScore();
+    // }
+    // randomize(characters);
   };
 
-  handleClick = e => {
-    // clickedArray is being declared as a copy of the state, which is necessary for line the line below where we change the isClicked attribute to true
-    let clickedArray = { ...this.state };
-    // if "isClicked" is false (default in json) is true... (keep in mind we're inside our handleClick method...)
-    if (!e.isClicked) {
-      // changing the card property isClicked to true
-      clickedArray.characters[e.id].isClicked = true;
-      // console.log(clickedArray.characters[e.id]);
-      // console.log('array:' + clickedArray.characters);
+  // ALLIE: YOU CAN TRY TO KEEP WORKING ON THIS LATER...FOR NOW IT'S NOT ACTING NICELY...
+  // handleScore = () => {
+  //   let score = this.state.score;
+  //   let topScore = this.state.topScore;
 
-      // setState of App to this new array as character cards are clicked
-      this.setState(clickedArray);
-      this.handleScore();
-    } else {
-      this.gameReset();
-    }
-    randomize(characters);
-  };
+  //   score++;
 
-  checkRepeats = e => {
-    let { id } = e.target;
-    this.setState({
-      id: id
-    });
-
-    if (this.state.selectedChars.includes(this.state.id)) {
-      this.setState({
-        banner: 'You guessed wrong!',
-        score: 0,
-        selectedChars: []
-      });
-    }
-    console.log('checking repeats:' + this.state.selectedChars);
-  };
-
-  handleScore = () => {
-    // when score reaches 12 call gameReset
-    if (this.state.score === 12) {
-      this.gameReset();
-    } else {
-      // else increment score by 1
-      this.setState({
-        score: this.state.score + 1
-      });
-    }
-  };
-
-  storeTopScore = () => {
-    let storeScore = this.state.score;
-    let storeTopScore = this.state.topScore;
-    if (storeScore > storeTopScore) {
-      storeTopScore = storeScore;
-    }
-  };
+  //   // Winning case score = 12
+  //   if (score === 12) {
+  //     this.setState({
+  //       banner: 'You win!',
+  //       score: score,
+  //       topScore: score
+  //     });
+  //     // if they beat their highest score, store topScore and display banner so
+  //   } else if (score >= topScore) {
+  //     this.setState({
+  //       banner: 'Click any card to keep playing!',
+  //       topScore: score,
+  //       score: score
+  //     });
+  //   }
+  //   console.log(score);
+  // };
 
   gameReset = () => {
-    // empty the score and change banner
-    this.setState({
-      score: 0,
-      banner: 'Game Over!'
+    // reset the isClicked value of the character to false to reset all character cards' properties
+    this.state.characters.forEach(char => {
+      char.isClicked = false;
     });
+
+    //update the topScore if their score is bigger than the current state
+    if (this.state.score > this.state.topScore) {
+      this.setState({
+        score: 0,
+        topScore: this.state.score,
+        banner: 'Click to play again.'
+      });
+    }
   };
+
+  // checkRepeats = () => {
+  // console.log('are we inside checkRepeats?');
+  // let repeatArray = { ...this.state };
+
+  // repeatArray.map(char => (char.selected = false));
+
+  // let repeatItem = array.item;
+  // let reapeatItemIndex = this.state.characters.findIndex(
+  //   char => char.item === repeatItem
+  // );
+  // // this.setState({
+  // //   id: id
+  // // });
+
+  // console.log(this.state.item);
+
+  // for (let i = 0; i < repeatArray.length; i++) {
+  //   let clickedProp = repeatArray.characters[reapeatItemIndex].isClicked;
+  //   if (clickedProp === false) {
+  //     console.log('clickedProp is false!');
+  //   } else if (clickedProp === true) {
+  //     this.setState(repeatArray);
+  //     this.gameReset();
+  //     console.log('clickedProp is true!');
+  //   }
+  // }
+
+  // if (this.state.selectedChars.includes(this.state.id)) {
+  //   this.setState({
+  //     banner: 'You guessed wrong!',
+  //     score: 0,
+  //     selectedChars: []
+  //   });
+  // }
+  // };
 
   render() {
     return (
@@ -116,8 +180,7 @@ class App extends Component {
           score={this.state.score}
           topScore={this.state.topScore}
           banner={this.state.banner}
-          handleScore={this.handleScore}
-          storeTopScore={this.storeTopScore}
+          // handleScore={this.handleScore}
         />
         <Jumbotron />
         <GameBody>

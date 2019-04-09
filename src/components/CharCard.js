@@ -7,13 +7,13 @@ const cardStyle = {
 };
 
 const CharCard = props => {
-  console.log('char props:' + props);
+  // console.log('char props:' + props);
   return (
     <div className="col-md-3">
       <div
         className="card border-dark mb-4"
         key={props.name}
-        onClick={() => props.handleClick(props)}
+        onClick={() => props.handleClick(props.id)}
       >
         <img
           className="card-img"

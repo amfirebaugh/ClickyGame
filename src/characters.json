@@ -1,37 +1,37 @@
 [
   {
     "id": 0,
-    "name": "Doug Funnie",
+    "name": "DougFunnie",
     "image": "https://vignette.wikia.nocookie.net/doug/images/a/a5/Doug_Funnie2.png/revision/latest/scale-to-width-down/310?cb=20180531191407",
     "isClicked": false
   },
   {
     "id": 1,
-    "name": "Phil Funnie",
+    "name": "PhilFunnie",
     "image": "https://vignette.wikia.nocookie.net/doug/images/8/8c/Phil_Funnie_promo.png/revision/latest/scale-to-width-down/199?cb=20181015201215",
     "isClicked": false
   },
   {
     "id": 2,
-    "name": "Theda Funnie",
+    "name": "ThedaFunnie",
     "image": "https://vignette.wikia.nocookie.net/doug/images/8/87/Theda_Funnie.png/revision/latest?cb=20181026194429",
     "isClicked": false
   },
   {
     "id": 3,
-    "name": "Judy Funnie",
+    "name": "JudyFunnie",
     "image": "https://vignette.wikia.nocookie.net/doug/images/1/1b/Judy_Funnie_.png/revision/latest/scale-to-width-down/230?cb=20181031044821",
     "isClicked": false
   },
   {
     "id": 4,
-    "name": "Patti Mayonnaise",
+    "name": "PattiMayonnaise",
     "image": "https://vignette.wikia.nocookie.net/doug/images/1/13/Patti1.gif/revision/latest?cb=20111224175643",
     "isClicked": false
   },
   {
     "id": 5,
-    "name": "Skeeter Valentine",
+    "name": "SkeeterValentine",
     "image": "https://vignette.wikia.nocookie.net/doug/images/d/dd/Skeeter_Valentine.png/revision/latest?cb=20180531190940",
     "isClicked": false
   },
@@ -43,31 +43,31 @@
   },
   {
     "id": 7,
-    "name": "Roger Klotz",
+    "name": "RogerKlotz",
     "image": "https://vignette.wikia.nocookie.net/doug/images/5/53/Roger_Klotz.png/revision/latest/scale-to-width-down/292?cb=20181031044625",
     "isClicked": false
   },
   {
     "id": 8,
-    "name": "Chalky Studebaker",
+    "name": "ChalkyStudebaker",
     "image": "https://vignette.wikia.nocookie.net/doug/images/2/2b/Chalky_Studebaker.png/revision/latest/scale-to-width-down/310?cb=20180514191403",
     "isClicked": false
   },
   {
     "id": 9,
-    "name": "Beebe Bluff",
+    "name": "BeebeBluff",
     "image": "https://vignette.wikia.nocookie.net/doug/images/e/e3/Beebe_Bluff.png/revision/latest/scale-to-width-down/310?cb=20180516112344",
     "isClicked": false
   },
   {
     "id": 10,
-    "name": "Connie Benge",
+    "name": "ConnieBenge",
     "image": "https://vignette.wikia.nocookie.net/doug/images/7/77/Connie_Benge.png/revision/latest/scale-to-width-down/310?cb=20180518001538",
     "isClicked": false
   },
   {
     "id": 11,
-    "name": "Al and Moo Sleech",
+    "name": "AlMooSleech",
     "image": "https://vignette.wikia.nocookie.net/doug/images/8/86/Al_and_Moo_Sleech_Twin_Brothers.jpg/revision/latest/scale-to-width-down/310?cb=20150723225418",
     "isClicked": false
   }
