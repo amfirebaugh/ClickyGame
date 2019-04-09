@@ -79,21 +79,6 @@ class App extends Component {
         }
       }
     });
-
-    // let clickedArray = { ...this.state };
-
-    // // let name = this.state.characters.name;
-
-    // if (isClicked) {
-    //   this.setState({
-    //     score: 0,
-    //     banner: 'Wrong Guess!'
-    //   });
-    //   this.checkRepeats();
-    // } else {
-    //   this.handleScore();
-    // }
-    // randomize(characters);
   };
 
   // ALLIE: YOU CAN TRY TO KEEP WORKING ON THIS LATER...FOR NOW IT'S NOT ACTING NICELY...
@@ -136,42 +121,6 @@ class App extends Component {
       });
     }
   };
-
-  // checkRepeats = () => {
-  // console.log('are we inside checkRepeats?');
-  // let repeatArray = { ...this.state };
-
-  // repeatArray.map(char => (char.selected = false));
-
-  // let repeatItem = array.item;
-  // let reapeatItemIndex = this.state.characters.findIndex(
-  //   char => char.item === repeatItem
-  // );
-  // // this.setState({
-  // //   id: id
-  // // });
-
-  // console.log(this.state.item);
-
-  // for (let i = 0; i < repeatArray.length; i++) {
-  //   let clickedProp = repeatArray.characters[reapeatItemIndex].isClicked;
-  //   if (clickedProp === false) {
-  //     console.log('clickedProp is false!');
-  //   } else if (clickedProp === true) {
-  //     this.setState(repeatArray);
-  //     this.gameReset();
-  //     console.log('clickedProp is true!');
-  //   }
-  // }
-
-  // if (this.state.selectedChars.includes(this.state.id)) {
-  //   this.setState({
-  //     banner: 'You guessed wrong!',
-  //     score: 0,
-  //     selectedChars: []
-  //   });
-  // }
-  // };
 
   render() {
     return (
