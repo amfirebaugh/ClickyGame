@@ -38,6 +38,7 @@ class App extends Component {
     selectedChars: []
   };
 
+  // NO LONGER NEED THIS SINCE I WANT TO RANDOMIZE IN
   // componentDidMount = () => {
   //   randomize(characters);
   //   // console.log(characters);
@@ -129,7 +130,6 @@ class App extends Component {
           score={this.state.score}
           topScore={this.state.topScore}
           banner={this.state.banner}
-          // handleScore={this.handleScore}
         />
         <Jumbotron />
         <GameBody>
@@ -139,6 +139,8 @@ class App extends Component {
               id={character.id}
               key={character.name}
               image={character.image}
+              isClicked={character.isClicked}
+              alt={character.name}
             />
           ))}
         </GameBody>
